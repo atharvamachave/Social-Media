@@ -9,7 +9,7 @@ import { createPost } from '../../functions/post';
 import PulseLoader from 'react-spinners/PulseLoader';
 import { useDispatch } from 'react-redux';
 import PostError from './PostError';
-import dataURItoBlob from '../../helpers/dataURLtoBlob';
+import dataURLtoBlob from '../../helpers/dataURLtoBlob';
 import { uploadImages } from '../../functions/uploadImages';
 export default function CreatePostPopup({ user, setVisible }) {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ export default function CreatePostPopup({ user, setVisible }) {
     } else if (images && images.length) {
       setLoading(true);
       const postImages = images.map((img) => {
-        return dataURItoBlob(img);
+        return dataURLtoBlob(img);
       });
       const path = `${user.username}/post Images`;
       let formData = new FormData();
