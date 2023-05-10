@@ -1,16 +1,16 @@
-import { Routes, Route } from 'react-router-dom';
-import Login from './pages/login';
-import Profile from './pages/profile';
-import Home from './pages/home';
-import LoggedInRoutes from './routes/LoggedInRoutes';
-import NotLoggedInRoutes from './routes/NotLoggedInRoutes';
-import { useSelector } from 'react-redux';
-import Activate from './pages/home/activate';
-import Reset from './pages/reset';
-import CreatePostPopup from './components/createPostPopup';
-import { useEffect, useReducer, useState } from 'react';
-import axios from 'axios';
-import { postsReducer } from './functions/reducers';
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/login";
+import Profile from "./pages/profile";
+import Home from "./pages/home";
+import LoggedInRoutes from "./routes/LoggedInRoutes";
+import NotLoggedInRoutes from "./routes/NotLoggedInRoutes";
+import { useSelector } from "react-redux";
+import Activate from "./pages/home/activate";
+import Reset from "./pages/reset";
+import CreatePostPopup from "./components/createPostPopup";
+import { useEffect, useReducer, useState } from "react";
+import axios from "axios";
+import { postsReducer } from "./functions/reducers";
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -18,7 +18,7 @@ function App() {
   const [{ loading, error, posts }, dispatch] = useReducer(postsReducer, {
     loading: false,
     posts: [],
-    error: '',
+    error: "",
   });
   useEffect(() => {
     getAllPosts();
@@ -26,7 +26,7 @@ function App() {
   const getAllPosts = async () => {
     try {
       dispatch({
-        type: 'POSTS_REQUEST',
+        type: "POSTS_REQUEST",
       });
       const { data } = await axios.get(
         `${process.env.REACT_APP_BACKEND_URL}/getAllposts`,
@@ -37,12 +37,12 @@ function App() {
         }
       );
       dispatch({
-        type: 'POSTS_SUCCESS',
+        type: "POSTS_SUCCESS",
         payload: data,
       });
     } catch (error) {
       dispatch({
-        type: 'POSTS_ERROR',
+        type: "POSTS_ERROR",
         payload: error.response.data.message,
       });
     }

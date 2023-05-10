@@ -1,4 +1,4 @@
-import { Dots, Feeling, Photo } from '../../svg';
+import { Dots, Feeling, Photo } from "../../svg";
 export default function AddToYourPost({ setShowPrev }) {
   return (
     <div className="addtoyourpost">

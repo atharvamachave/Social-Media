@@ -13,7 +13,7 @@ export default function DisplayAccessibility({ setVisible }) {
         Display & Accessibility
       </div>
       <div className="mmenu_main">
-        <div className="small_circle" style={{ width: '50px' }}>
+        <div className="small_circle" style={{ width: "50px" }}>
           <i className="dark_filled_icon"></i>
         </div>
         <div className="mmenu_col">
@@ -33,7 +33,7 @@ export default function DisplayAccessibility({ setVisible }) {
         <input type="radio" name="dark" id="darkOn" />
       </label>
       <div className="mmenu_main">
-        <div className="small_circle" style={{ width: '50px' }}>
+        <div className="small_circle" style={{ width: "50px" }}>
           <i className="compact_icon"></i>
         </div>
         <div className="mmenu_col">

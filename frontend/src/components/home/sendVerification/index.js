@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import './style.css';
-import axios from 'axios';
+import { useState } from "react";
+import "./style.css";
+import axios from "axios";
 export default function SendVerification({ user }) {
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const sendVerificationLink = async () => {
     try {
       const { data } = await axios.post(

@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import EmojiPickerBackgrounds from './EmojiPickerBackgrounds';
+import { useRef } from "react";
+import EmojiPickerBackgrounds from "./EmojiPickerBackgrounds";
 
 export default function ImagePreview({
   text,
@@ -16,17 +16,17 @@ export default function ImagePreview({
     files.forEach((img) => {
       console.log(img);
       if (
-        img.type !== 'image/jpeg' &&
-        img.type !== 'image/png' &&
-        img.type !== 'image/webp' &&
-        img.type !== 'image/gif'
+        img.type !== "image/jpeg" &&
+        img.type !== "image/png" &&
+        img.type !== "image/webp" &&
+        img.type !== "image/gif"
       ) {
         setError(
           `${img.name} format is unsupported ! only Jpeg, Png, Webp, Gif are allowed.`
         );
         files = files.filter((item) => item.name !== img.name);
         return;
-      } else if (img.size > 1024 * 1024) {
+      } else if (img.size > 1024 * 1024 * 5) {
         setError(`${img.name} size is too large max 5mb allowed.`);
         files = files.filter((item) => item.name !== img.name);
         return;
@@ -79,18 +79,18 @@ export default function ImagePreview({
             <div
               className={
                 images.length === 1
-                  ? 'preview1'
+                  ? "preview1"
                   : images.length === 2
-                  ? 'preview2'
+                  ? "preview2"
                   : images.length === 3
-                  ? 'preview3'
+                  ? "preview3"
                   : images.length === 4
-                  ? 'preview4 '
+                  ? "preview4 "
                   : images.length === 5
-                  ? 'preview5'
+                  ? "preview5"
                   : images.length % 2 === 0
-                  ? 'preview6'
-                  : 'preview6 singular_grid'
+                  ? "preview6"
+                  : "preview6 singular_grid"
               }
             >
               {images.map((img, i) => (

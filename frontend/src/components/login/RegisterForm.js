@@ -1,26 +1,26 @@
-import { Form, Formik } from 'formik';
-import { useState } from 'react';
-import RegisterInput from '../inputs/registerInput';
-import * as Yup from 'yup';
-import DateOfBirthSelect from './DateOfBirthSelect';
-import GenderSelect from './GenderSelect';
-import DotLoader from 'react-spinners/DotLoader';
-import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
+import { Form, Formik } from "formik";
+import { useState } from "react";
+import RegisterInput from "../inputs/registerInput";
+import * as Yup from "yup";
+import DateOfBirthSelect from "./DateOfBirthSelect";
+import GenderSelect from "./GenderSelect";
+import DotLoader from "react-spinners/DotLoader";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 export default function RegisterForm({ setVisible }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userInfos = {
-    first_name: '',
-    last_name: '',
-    email: '',
-    password: '',
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
     bYear: new Date().getFullYear(),
     bMonth: new Date().getMonth() + 1,
     bDay: new Date().getDate(),
-    gender: '',
+    gender: "",
   };
   const [user, setUser] = useState(userInfos);
   const {
@@ -47,31 +47,31 @@ export default function RegisterForm({ setVisible }) {
   const registerValidation = Yup.object({
     first_name: Yup.string()
       .required("What's your First name ?")
-      .min(2, 'Fisrt name must be between 2 and 16 characters.')
-      .max(16, 'Fisrt name must be between 2 and 16 characters.')
-      .matches(/^[aA-zZ]+$/, 'Numbers and special characters are not allowed.'),
+      .min(2, "Fisrt name must be between 2 and 16 characters.")
+      .max(16, "Fisrt name must be between 2 and 16 characters.")
+      .matches(/^[aA-zZ]+$/, "Numbers and special characters are not allowed."),
     last_name: Yup.string()
       .required("What's your Last name ?")
-      .min(2, 'Last name must be between 2 and 16 characters.')
-      .max(16, 'Last name must be between 2 and 16 characters.')
-      .matches(/^[aA-zZ]+$/, 'Numbers and special characters are not allowed.'),
+      .min(2, "Last name must be between 2 and 16 characters.")
+      .max(16, "Last name must be between 2 and 16 characters.")
+      .matches(/^[aA-zZ]+$/, "Numbers and special characters are not allowed."),
     email: Yup.string()
       .required(
         "You'll need this when you log in and if you ever need to reset your password."
       )
-      .email('Enter a valid email address.'),
+      .email("Enter a valid email address."),
     password: Yup.string()
       .required(
-        'Enter a combination of at least six numbers,letters and punctuation marks(such as ! and &).'
+        "Enter a combination of at least six numbers,letters and punctuation marks(such as ! and &)."
       )
-      .min(6, 'Password must be atleast 6 characters.')
+      .min(6, "Password must be atleast 6 characters.")
       .max(36, "Password can't be more than 36 characters"),
   });
-  const [dateError, setDateError] = useState('');
-  const [genderError, setGenderError] = useState('');
+  const [dateError, setDateError] = useState("");
+  const [genderError, setGenderError] = useState("");
 
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
   const registerSubmit = async () => {
@@ -89,17 +89,17 @@ export default function RegisterForm({ setVisible }) {
           gender,
         }
       );
-      setError('');
+      setError("");
       setSuccess(data.message);
       const { message, ...rest } = data;
       setTimeout(() => {
-        dispatch({ type: 'LOGIN', payload: rest });
-        Cookies.set('user', JSON.stringify(rest));
-        navigate('/');
+        dispatch({ type: "LOGIN", payload: rest });
+        Cookies.set("user", JSON.stringify(rest));
+        navigate("/");
       }, 2000);
     } catch (error) {
       setLoading(false);
-      setSuccess('');
+      setSuccess("");
       setError(error.response.data.message);
     }
   };
@@ -108,8 +108,8 @@ export default function RegisterForm({ setVisible }) {
       <div className="register">
         <div className="register_header">
           <i className="exit_icon" onClick={() => setVisible(false)}></i>
-          <span>Create new account</span>
-          <span> it's quick and easy</span>
+          <span>Sign Up</span>
+          <span>it's quick and easy</span>
         </div>
         <Formik
           enableReinitialize
@@ -131,20 +131,20 @@ export default function RegisterForm({ setVisible }) {
             let noMoreThan70 = new Date(1970 + 70, 0, 1);
             if (current_date - picked_date < atleast14) {
               setDateError(
-                'it looks like you(ve enetered the wrong info.Please make sure that you use your real date of birth.'
+                "it looks like you(ve enetered the wrong info.Please make sure that you use your real date of birth."
               );
             } else if (current_date - picked_date > noMoreThan70) {
               setDateError(
-                'it looks like you(ve enetered the wrong info.Please make sure that you use your real date of birth.'
+                "it looks like you(ve enetered the wrong info.Please make sure that you use your real date of birth."
               );
-            } else if (gender === '') {
-              setDateError('');
+            } else if (gender === "") {
+              setDateError("");
               setGenderError(
-                'Please choose a gender. You can change who can see this later.'
+                "Please choose a gender. You can change who can see this later."
               );
             } else {
-              setDateError('');
-              setGenderError('');
+              setDateError("");
+              setGenderError("");
               registerSubmit();
             }
           }}
@@ -207,7 +207,7 @@ export default function RegisterForm({ setVisible }) {
                 />
               </div>
               <div className="reg_infos">
-                By clicking Sign Up, you agree to our{' '}
+                By clicking Sign Up, you agree to our{" "}
                 <span>Terms, Data Policy &nbsp;</span>
                 and <span>Cookie Policy.</span> You may receive SMS
                 notifications from us and can opt out at any time.

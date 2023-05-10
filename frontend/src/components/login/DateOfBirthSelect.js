@@ -1,4 +1,4 @@
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
 
 export default function DateOfBirthSelect({
   bDay,
@@ -11,18 +11,18 @@ export default function DateOfBirthSelect({
   dateError,
 }) {
   const view1 = useMediaQuery({
-    query: '(min-width: 539px)',
+    query: "(min-width: 539px)",
   });
   const view2 = useMediaQuery({
-    query: '(min-width: 850px)',
+    query: "(min-width: 850px)",
   });
   const view3 = useMediaQuery({
-    query: '(min-width: 1170px)',
+    query: "(min-width: 1170px)",
   });
   return (
     <div
       className="reg_grid"
-      style={{ marginBottom: `${dateError && !view3 ? '90px' : '0'}` }}
+      style={{ marginBottom: `${dateError && !view3 ? "90px" : "0"}` }}
     >
       <select name="bDay" value={bDay} onChange={handleRegisterChange}>
         {days.map((day, i) => (
@@ -48,11 +48,11 @@ export default function DateOfBirthSelect({
       {dateError && (
         <div
           className={
-            !view3 ? 'input_error' : 'input_error input_error_select_large'
+            !view3 ? "input_error" : "input_error input_error_select_large"
           }
         >
           <div
-            className={!view3 ? 'error_arrow_bottom' : 'error_arrow_left'}
+            className={!view3 ? "error_arrow_bottom" : "error_arrow_left"}
           ></div>
           {dateError}
         </div>

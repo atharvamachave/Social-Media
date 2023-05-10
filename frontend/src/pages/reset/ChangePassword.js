@@ -1,16 +1,16 @@
-import { Form, Formik } from 'formik';
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import LoginInput from '../../components/inputs/loginInput';
-import * as Yup from 'yup';
-import axios from 'axios';
+import { Form, Formik } from "formik";
+import { useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import LoginInput from "../../components/inputs/loginInput";
+import * as Yup from "yup";
+import axios from "axios";
 export default function ChangePassword({
   password,
   setPassword,
   conf_password,
   setConf_password,
   error,
-  loading,
+  laoding,
   setLoading,
   userInfos,
   setError,
@@ -19,14 +19,14 @@ export default function ChangePassword({
   const validatePassword = Yup.object({
     password: Yup.string()
       .required(
-        'Enter a combination of at least six numbers,letters and punctuation marks(such as ! and &).'
+        "Enter a combination of at least six numbers,letters and punctuation marks(such as ! and &)."
       )
-      .min(6, 'Password must be atleast 6 characters.')
+      .min(6, "Password must be atleast 6 characters.")
       .max(36, "Password can't be more than 36 characters"),
 
     conf_password: Yup.string()
-      .required('Confirm your password.')
-      .oneOf([Yup.ref('password')], 'Passwords must match.'),
+      .required("Confirm your password.")
+      .oneOf([Yup.ref("password")], "Passwords must match."),
   });
   const { email } = userInfos;
   const changePassword = async () => {
@@ -36,15 +36,15 @@ export default function ChangePassword({
         email,
         password,
       });
-      setError('');
-      navigate('/');
+      setError("");
+      navigate("/");
     } catch (error) {
       setLoading(false);
       setError(error.response.data.message);
     }
   };
   return (
-    <div className="reset_form" style={{ height: '310px' }}>
+    <div className="reset_form" style={{ height: "310px" }}>
       <div className="reset_form_header">Change Password</div>
       <div className="reset_form_text">Pick a strong password</div>
       <Formik

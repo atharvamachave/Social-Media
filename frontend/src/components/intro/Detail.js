@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import Bio from './Bio';
+import { useState } from "react";
+import Bio from "./Bio";
 
 export default function Detail({
   img,

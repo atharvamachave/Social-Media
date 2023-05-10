@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default function PostError({ error, setError }) {
   return (
@@ -7,7 +7,7 @@ export default function PostError({ error, setError }) {
       <button
         className="blue_btn"
         onClick={() => {
-          setError('');
+          setError("");
         }}
       >
         Try again

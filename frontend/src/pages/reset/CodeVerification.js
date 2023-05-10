@@ -1,9 +1,9 @@
-import { Form, Formik } from 'formik';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import LoginInput from '../../components/inputs/loginInput';
-import * as Yup from 'yup';
-import axios from 'axios';
+import { Form, Formik } from "formik";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import LoginInput from "../../components/inputs/loginInput";
+import * as Yup from "yup";
+import axios from "axios";
 export default function CodeVerification({
   code,
   setCode,
@@ -16,9 +16,9 @@ export default function CodeVerification({
 }) {
   const validateCode = Yup.object({
     code: Yup.string()
-      .required('Code is required')
-      .min('5', 'Code must be 5 characters.')
-      .max('5', 'Code must be 5 characters.'),
+      .required("Code is required")
+      .min("5", "Code must be 5 characters.")
+      .max("5", "Code must be 5 characters."),
   });
   const { email } = userInfos;
   const verifyCode = async () => {
@@ -29,7 +29,7 @@ export default function CodeVerification({
         { email, code }
       );
       setVisible(3);
-      setError('');
+      setError("");
       setLoading(false);
     } catch (error) {
       setLoading(false);

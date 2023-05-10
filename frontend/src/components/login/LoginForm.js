@@ -1,16 +1,16 @@
-import { Formik, Form } from 'formik';
-import { Link } from 'react-router-dom';
-import * as Yup from 'yup';
-import LoginInput from '../../components/inputs/loginInput';
-import { useState } from 'react';
-import DotLoader from 'react-spinners/DotLoader';
-import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
+import { Formik, Form } from "formik";
+import { Link } from "react-router-dom";
+import * as Yup from "yup";
+import LoginInput from "../../components/inputs/loginInput";
+import { useState } from "react";
+import DotLoader from "react-spinners/DotLoader";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 const loginInfos = {
-  email: '',
-  password: '',
+  email: "",
+  password: "",
 };
 export default function LoginForm({ setVisible }) {
   const dispatch = useDispatch();
@@ -23,12 +23,12 @@ export default function LoginForm({ setVisible }) {
   };
   const loginValidation = Yup.object({
     email: Yup.string()
-      .required('Email address is required.')
-      .email('Must be a valid email.')
+      .required("Email address is required.")
+      .email("Must be a valid email.")
       .max(100),
-    password: Yup.string().required('Password is required'),
+    password: Yup.string().required("Password is required"),
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const loginSubmit = async () => {
     try {
@@ -40,9 +40,9 @@ export default function LoginForm({ setVisible }) {
           password,
         }
       );
-      dispatch({ type: 'LOGIN', payload: data });
-      Cookies.set('user', JSON.stringify(data));
-      navigate('/');
+      dispatch({ type: "LOGIN", payload: data });
+      Cookies.set("user", JSON.stringify(data));
+      navigate("/");
     } catch (error) {
       setLoading(false);
       setError(error.response.data.message);

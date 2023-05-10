@@ -1,17 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
-import Picker from 'emoji-picker-react';
+import { useEffect, useRef, useState } from "react";
+import Picker from "emoji-picker-react";
 export default function CreateComment({ user }) {
   const [picker, setPicker] = useState(false);
-  const [text, setText] = useState('');
-  const [error, setError] = useState('');
-  const [commentImage, setCommentImage] = useState('');
+  const [text, setText] = useState("");
+  const [error, setError] = useState("");
+  const [commentImage, setCommentImage] = useState("");
   const [cursorPosition, setCursorPosition] = useState();
   const textRef = useRef(null);
   const imgInput = useRef(null);
   useEffect(() => {
     textRef.current.selectionEnd = cursorPosition;
   }, [cursorPosition]);
-  const handleEmoji = ({ emoji }) => {
+  const handleEmoji = (e, { emoji }) => {
     const ref = textRef.current;
     ref.focus();
     const start = text.substring(0, ref.selectionStart);
@@ -23,10 +23,10 @@ export default function CreateComment({ user }) {
   const handleImage = (e) => {
     let file = e.target.files[0];
     if (
-      file.type !== 'image/jpeg' &&
-      file.type !== 'image/png' &&
-      file.type !== 'image/webp' &&
-      file.type !== 'image/gif'
+      file.type !== "image/jpeg" &&
+      file.type !== "image/png" &&
+      file.type !== "image/webp" &&
+      file.type !== "image/gif"
     ) {
       setError(`${file.name} format is not supported.`);
       return;
@@ -61,7 +61,7 @@ export default function CreateComment({ user }) {
           {error && (
             <div className="postError comment_error">
               <div className="postError_error">{error}</div>
-              <button className="blue_btn" onClick={() => setError('')}>
+              <button className="blue_btn" onClick={() => setError("")}>
                 Try again
               </button>
             </div>
@@ -100,7 +100,7 @@ export default function CreateComment({ user }) {
           <img src={commentImage} alt="" />
           <div
             className="small_white_circle"
-            onClick={() => setCommentImage('')}
+            onClick={() => setCommentImage("")}
           >
             <i className="exit_icon"></i>
           </div>

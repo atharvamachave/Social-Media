@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { useEffect, useReducer } from 'react';
-import { photosReducer } from '../../functions/reducers';
+import axios from "axios";
+import { useEffect, useReducer } from "react";
+import { photosReducer } from "../../functions/reducers";
 
 export default function Photos({ username, token, photos }) {
   return (
@@ -11,9 +11,9 @@ export default function Photos({ username, token, photos }) {
       </div>
       <div className="profile_card_count">
         {photos.total_count === 0
-          ? ''
+          ? ""
           : photos.total_count === 1
-          ? '1 Photo'
+          ? "1 Photo"
           : `${photos.total_count} photos`}
       </div>
       <div className="profile_card_grid">

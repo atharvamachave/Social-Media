@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -54,7 +54,7 @@ export default function Footer() {
         <Link to="/">Help</Link>
       </div>
       <div className="login_footer_wrap">
-        <Link to="/" style={{ fontSize: '12px', marginTop: '10px' }}>
+        <Link to="/" style={{ fontSize: "12px", marginTop: "10px" }}>
           Meta © 2022
         </Link>
       </div>

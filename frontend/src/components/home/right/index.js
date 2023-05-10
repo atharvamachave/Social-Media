@@ -1,8 +1,8 @@
-import { Dots, NewRoom, Search } from '../../../svg';
-import Contact from './Contact';
-import './style.css';
+import { Dots, NewRoom, Search } from "../../../svg";
+import Contact from "./Contact";
+import "./style.css";
 export default function RightHome({ user }) {
-  const color = '#6567b';
+  const color = "#65676b";
   return (
     <div className="right_home">
       <div className="heading">Sponsored</div>
@@ -22,7 +22,7 @@ export default function RightHome({ user }) {
             </div>
           </div>
         </div>
-        <div className="contacts_list ">
+        <div className="contacts_list">
           <Contact user={user} />
         </div>
       </div>

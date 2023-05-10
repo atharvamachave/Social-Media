@@ -1,6 +1,6 @@
-import { useRef } from 'react';
-import Detail from './Detail';
-import useOnCLickOutside from '../../helpers/clickOutside';
+import { useRef } from "react";
+import Detail from "./Detail";
+import useOnCLickOutside from "../../helpers/clickOutside";
 export default function EditDetails({
   details,
   handleChange,

@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function SendEmail({
   userInfos,
@@ -18,7 +18,7 @@ export default function SendEmail({
         `${process.env.REACT_APP_BACKEND_URL}/sendResetPasswordCode`,
         { email }
       );
-      setError('');
+      setError("");
       setVisible(2);
       setLoading(false);
     } catch (error) {
@@ -49,7 +49,7 @@ export default function SendEmail({
         </div>
       </div>
       {error && (
-        <div className="error_text" style={{ padding: '10px' }}>
+        <div className="error_text" style={{ padding: "10px" }}>
           {error}
         </div>
       )}

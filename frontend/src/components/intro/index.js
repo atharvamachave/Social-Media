@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import Bio from './Bio';
-import './style.css';
-import axios from 'axios';
-import { useSelector } from 'react-redux';
-import EditDetails from './EditDetails';
+import { useEffect, useState } from "react";
+import Bio from "./Bio";
+import "./style.css";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import EditDetails from "./EditDetails";
 export default function Intro({ detailss, visitor, setOthername }) {
   const { user } = useSelector((state) => ({ ...state }));
   const [details, setDetails] = useState();
@@ -13,16 +13,16 @@ export default function Intro({ detailss, visitor, setOthername }) {
     setInfos(detailss);
   }, [detailss]);
   const initial = {
-    bio: details?.bio ? details.bio : '',
-    otherName: details?.otherName ? details.otherName : '',
-    job: details?.job ? details.job : '',
-    workplace: details?.workplace ? details.workplace : '',
-    highSchool: details?.highSchool ? details.highSchool : '',
-    college: details?.college ? details.college : '',
-    currentCity: details?.currentCity ? details.currentCity : '',
-    hometown: details?.hometown ? details.hometown : '',
-    relationship: details?.relationship ? details.relationship : '',
-    instagram: details?.instagram ? details.instagram : '',
+    bio: details?.bio ? details.bio : "",
+    otherName: details?.otherName ? details.otherName : "",
+    job: details?.job ? details.job : "",
+    workplace: details?.workplace ? details.workplace : "",
+    highSchool: details?.highSchool ? details.highSchool : "",
+    college: details?.college ? details.college : "",
+    currentCity: details?.currentCity ? details.currentCity : "",
+    hometown: details?.hometown ? details.hometown : "",
+    relationship: details?.relationship ? details.relationship : "",
+    instagram: details?.instagram ? details.instagram : "",
   };
   const [infos, setInfos] = useState(initial);
   const [showBio, setShowBio] = useState(false);
@@ -30,7 +30,7 @@ export default function Intro({ detailss, visitor, setOthername }) {
 
   const updateDetails = async () => {
     try {
-      console.log('sent');
+      console.log("sent");
       const { data } = await axios.put(
         `${process.env.REACT_APP_BACKEND_URL}/updateDetails`,
         {

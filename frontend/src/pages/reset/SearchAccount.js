@@ -1,9 +1,9 @@
-import { Form, Formik } from 'formik';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import LoginInput from '../../components/inputs/loginInput';
-import * as Yup from 'yup';
-import axios from 'axios';
+import { Form, Formik } from "formik";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import LoginInput from "../../components/inputs/loginInput";
+import * as Yup from "yup";
+import axios from "axios";
 export default function SearchAccount({
   email,
   setEmail,
@@ -15,8 +15,8 @@ export default function SearchAccount({
 }) {
   const validateEmail = Yup.object({
     email: Yup.string()
-      .required('Email address ir required.')
-      .email('Must be a valid email address.')
+      .required("Email address ir required.")
+      .email("Must be a valid email address.")
       .max(50, "Email address can't be more than 50 characters."),
   });
   const handleSearch = async () => {
@@ -29,7 +29,7 @@ export default function SearchAccount({
       );
       setUserInfos(data);
       setVisible(1);
-      setError('');
+      setError("");
       setLoading(false);
     } catch (error) {
       setLoading(false);

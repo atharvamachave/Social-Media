@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 export const createPost = async (
   type,
   background,
@@ -23,7 +23,7 @@ export const createPost = async (
         },
       }
     );
-    return 'ok';
+    return "ok";
   } catch (error) {
     return error.response.data.message;
   }
