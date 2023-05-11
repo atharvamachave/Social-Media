@@ -1,7 +1,7 @@
-import { useRef, useState } from 'react';
-import ProfilePicture from '../../components/profielPicture';
-import Friendship from './Friendship';
-import { Link } from 'react-router-dom';
+import { useRef, useState } from "react";
+import ProfilePicture from "../../components/profielPicture";
+import Friendship from "./Friendship";
+import { Link } from "react-router-dom";
 export default function ProfielPictureInfos({
   profile,
   visitor,
@@ -19,7 +19,7 @@ export default function ProfielPictureInfos({
             className="profile_w_bg"
             ref={pRef}
             style={{
-              backgroundSize: 'cover',
+              backgroundSize: "cover",
               backgroundImage: `url(${profile.picture})`,
             }}
           ></div>
@@ -41,9 +41,9 @@ export default function ProfielPictureInfos({
             {profile?.friends && (
               <div className="profile_card_count">
                 {profile?.friends.length === 0
-                  ? ''
+                  ? ""
                   : profile?.friends.length === 1
-                  ? '1 Friend'
+                  ? "1 Friend"
                   : `${profile?.friends.length} Friends`}
               </div>
             )}

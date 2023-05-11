@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { ObjectId } = mongoose.Schema;
 
@@ -9,9 +9,9 @@ const codeSchema = new mongoose.Schema({
   },
   user: {
     type: ObjectId,
-    ref: 'User',
+    ref: "User",
     required: true,
   },
 });
 
-module.exports = mongoose.model('Code', codeSchema);
+module.exports = mongoose.model("Code", codeSchema);

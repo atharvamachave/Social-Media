@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { ObjectId } = mongoose.Schema;
 
@@ -6,7 +6,7 @@ const postSchema = new mongoose.Schema(
   {
     type: {
       type: String,
-      enum: ['profilePicture', 'coverPicture', null],
+      enum: ["profilePicture", "coverPicture", null],
       default: null,
     },
     text: {
@@ -17,7 +17,7 @@ const postSchema = new mongoose.Schema(
     },
     user: {
       type: ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     background: {
@@ -33,11 +33,11 @@ const postSchema = new mongoose.Schema(
         },
         commentBy: {
           type: ObjectId,
-          ref: 'User',
+          ref: "User",
         },
         commentAt: {
           type: Date,
-          default: new Date(),
+          required: true,
         },
       },
     ],
@@ -47,4 +47,4 @@ const postSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('Post', postSchema);
+module.exports = mongoose.model("Post", postSchema);

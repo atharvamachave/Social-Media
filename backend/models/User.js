@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { ObjectId } = mongoose.Schema;
 
@@ -6,19 +6,19 @@ const userSchema = mongoose.Schema(
   {
     first_name: {
       type: String,
-      required: [true, 'first name is required'],
+      required: [true, "first name is required"],
       trim: true,
       text: true,
     },
     last_name: {
       type: String,
-      required: [true, 'last name is required'],
+      required: [true, "last name is required"],
       trim: true,
       text: true,
     },
     username: {
       type: String,
-      required: [true, 'username is required'],
+      required: [true, "username is required"],
       trim: true,
       text: true,
       unique: true,
@@ -26,18 +26,18 @@ const userSchema = mongoose.Schema(
 
     email: {
       type: String,
-      required: [true, 'email is required'],
+      required: [true, "email is required"],
       trim: true,
     },
     password: {
       type: String,
-      required: [true, 'password is required'],
+      required: [true, "password is required"],
     },
     picture: {
       type: String,
       trim: true,
       default:
-        'https://res.cloudinary.com/dmhcnhtng/image/upload/v1643044376/avatars/default_pic_jeaybr.png',
+        "https://res.cloudinary.com/dmhcnhtng/image/upload/v1643044376/avatars/default_pic_jeaybr.png",
     },
     cover: {
       type: String,
@@ -45,7 +45,7 @@ const userSchema = mongoose.Schema(
     },
     gender: {
       type: String,
-      required: [true, 'gender is required'],
+      required: [true, "gender is required"],
       trim: true,
     },
     bYear: {
@@ -70,32 +70,32 @@ const userSchema = mongoose.Schema(
     friends: [
       {
         type: ObjectId,
-        ref: 'User',
+        ref: "User",
       },
     ],
     following: [
       {
         type: ObjectId,
-        ref: 'User',
+        ref: "User",
       },
     ],
     followers: [
       {
         type: ObjectId,
-        ref: 'User',
+        ref: "User",
       },
     ],
     requests: [
       {
         type: ObjectId,
-        ref: 'User',
+        ref: "User",
       },
     ],
     search: [
       {
         user: {
           type: ObjectId,
-          ref: 'User',
+          ref: "User",
         },
       },
     ],
@@ -126,7 +126,7 @@ const userSchema = mongoose.Schema(
       },
       relationship: {
         type: String,
-        enum: ['Single', 'In a relationship', 'Married', 'Divorced'],
+        enum: ["Single", "In a relationship", "Married", "Divorced"],
       },
       instagram: {
         type: String,
@@ -136,7 +136,7 @@ const userSchema = mongoose.Schema(
       {
         post: {
           type: ObjectId,
-          ref: 'Post',
+          ref: "Post",
         },
         savedAt: {
           type: Date,
@@ -150,4 +150,4 @@ const userSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);

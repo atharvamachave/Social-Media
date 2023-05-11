@@ -1,25 +1,25 @@
-import { useEffect, useRef, useState } from "react";
-import "./style.css";
-import Picker from "emoji-picker-react";
-import EmojiPickerBackgrounds from "./EmojiPickerBackgrounds";
-import AddToYourPost from "./AddToYourPost";
-import ImagePreview from "./ImagePreview";
-import useClickOutside from "../../helpers/clickOutside";
-import { createPost } from "../../functions/post";
-import PulseLoader from "react-spinners/PulseLoader";
-import { useDispatch } from "react-redux";
-import PostError from "./PostError";
-import dataURItoBlob from "../../helpers/dataURItoBlob";
-import { uploadImages } from "../../functions/uploadImages";
+import { useEffect, useRef, useState } from 'react';
+import './style.css';
+import Picker from 'emoji-picker-react';
+import EmojiPickerBackgrounds from './EmojiPickerBackgrounds';
+import AddToYourPost from './AddToYourPost';
+import ImagePreview from './ImagePreview';
+import useClickOutside from '../../helpers/clickOutside';
+import { createPost } from '../../functions/post';
+import PulseLoader from 'react-spinners/PulseLoader';
+import { useDispatch } from 'react-redux';
+import PostError from './PostError';
+import dataURItoBlob from '../../helpers/dataURItoBlob';
+import { uploadImages } from '../../functions/uploadImages';
 export default function CreatePostPopup({ user, setVisible }) {
   const dispatch = useDispatch();
   const popup = useRef(null);
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [showPrev, setShowPrev] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [images, setImages] = useState([]);
-  const [background, setBackground] = useState("");
+  const [background, setBackground] = useState('');
   useClickOutside(popup, () => {
     setVisible(false);
   });
@@ -35,9 +35,9 @@ export default function CreatePostPopup({ user, setVisible }) {
         user.token
       );
       setLoading(false);
-      if (response === "ok") {
-        setBackground("");
-        setText("");
+      if (response === 'ok') {
+        setBackground('');
+        setText('');
         setVisible(false);
       } else {
         setError(response);
@@ -49,9 +49,9 @@ export default function CreatePostPopup({ user, setVisible }) {
       });
       const path = `${user.username}/post_images`;
       let formData = new FormData();
-      formData.append("path", path);
+      formData.append('path', path);
       postImages.forEach((image) => {
-        formData.append("file", image);
+        formData.append('file', image);
       });
       const response = await uploadImages(formData, path, user.token);
 
@@ -64,9 +64,9 @@ export default function CreatePostPopup({ user, setVisible }) {
         user.token
       );
       setLoading(false);
-      if (res === "ok") {
-        setText("");
-        setImages("");
+      if (res === 'ok') {
+        setText('');
+        setImages('');
         setVisible(false);
       } else {
         setError(res);
@@ -82,15 +82,15 @@ export default function CreatePostPopup({ user, setVisible }) {
         user.token
       );
       setLoading(false);
-      if (response === "ok") {
-        setBackground("");
-        setText("");
+      if (response === 'ok') {
+        setBackground('');
+        setText('');
         setVisible(false);
       } else {
         setError(response);
       }
     } else {
-      console.log("nothing");
+      console.log('nothing');
     }
   };
   return (
@@ -153,7 +153,7 @@ export default function CreatePostPopup({ user, setVisible }) {
           }}
           disabled={loading}
         >
-          {loading ? <PulseLoader color="#fff" size={5} /> : "Post"}
+          {loading ? <PulseLoader color="#fff" size={5} /> : 'Post'}
         </button>
       </div>
     </div>

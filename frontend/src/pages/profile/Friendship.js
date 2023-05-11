@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import useClickOutside from '../../helpers/clickOutside';
-import { useSelector } from 'react-redux';
+import { useEffect, useRef, useState } from "react";
+import useClickOutside from "../../helpers/clickOutside";
+import { useSelector } from "react-redux";
 import {
   acceptRequest,
   addFriend,
@@ -9,7 +9,7 @@ import {
   follow,
   unfollow,
   unfriend,
-} from '../../functions/user';
+} from "../../functions/user";
 export default function Friendship({ friendshipp, profileid }) {
   const [friendship, setFriendship] = useState(friendshipp);
   useEffect(() => {
@@ -170,10 +170,10 @@ export default function Friendship({ friendshipp, profileid }) {
             <span>Follow</span>
           </button>
         )}
-        <button className={friendship?.friends ? 'blue_btn' : 'gray_btn'}>
+        <button className={friendship?.friends ? "blue_btn" : "gray_btn"}>
           <img
             src="../../../icons/message.png"
-            className={friendship?.friends && 'invert'}
+            className={friendship?.friends && "invert"}
             alt=""
           />
           <span>Message</span>

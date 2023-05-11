@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 export default function Friends({ friends }) {
   return (
     <div className="profile_card">
@@ -9,9 +9,9 @@ export default function Friends({ friends }) {
       {friends && (
         <div className="profile_card_count">
           {friends.length === 0
-            ? ''
+            ? ""
             : friends.length === 1
-            ? '1 Friend'
+            ? "1 Friend"
             : `${friends.length} Friends`}
         </div>
       )}
