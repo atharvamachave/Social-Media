@@ -16,7 +16,7 @@ export default function CreateComment({ user, postId, setComments, setCount }) {
   useEffect(() => {
     textRef.current.selectionEnd = cursorPosition;
   }, [cursorPosition]);
-  const handleEmoji = ( { emoji }) => {
+  const handleEmoji = (e, { emoji }) => {
     const ref = textRef.current;
     ref.focus();
     const start = text.substring(0, ref.selectionStart);
