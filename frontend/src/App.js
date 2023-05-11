@@ -11,10 +11,11 @@ import CreatePostPopup from "./components/createPostPopup";
 import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import { postsReducer } from "./functions/reducers";
+import Friends from "./pages/friends";
 
 function App() {
   const [visible, setVisible] = useState(false);
-  const { user } = useSelector((state) => ({ ...state }));
+  const { user, darkTheme } = useSelector((state) => ({ ...state }));
   const [{ loading, error, posts }, dispatch] = useReducer(postsReducer, {
     loading: false,
     posts: [],
@@ -48,7 +49,7 @@ function App() {
     }
   };
   return (
-    <div>
+    <div className={darkTheme && "dark"}>
       {visible && (
         <CreatePostPopup
           user={user}
@@ -70,6 +71,20 @@ function App() {
             path="/profile/:username"
             element={
               <Profile setVisible={setVisible} getAllPosts={getAllPosts} />
+            }
+            exact
+          />
+          <Route
+            path="/friends"
+            element={
+              <Friends setVisible={setVisible} getAllPosts={getAllPosts} />
+            }
+            exact
+          />
+          <Route
+            path="/friends/:type"
+            element={
+              <Friends setVisible={setVisible} getAllPosts={getAllPosts} />
             }
             exact
           />

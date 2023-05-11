@@ -74,6 +74,7 @@
   justify-content: space-between;
   padding: 0 1rem;
   margin-bottom: -2.8rem;
+  z-index: 1;
 }
 .profile_w_left {
   display: flex;
@@ -357,6 +358,9 @@
   object-fit: cover;
   width: 100%;
 }
+.friends_menu_wrap {
+  position: relative;
+}
 .cover_crooper .reactEasyCrop_Container {
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -471,6 +475,9 @@
     justify-content: center;
     transform: translateY(-10px);
   }
+  .fix1 {
+    transform: translate(1.2rem, -10px);
+  }
 }
 @media (max-width: 650px) {
   .profile_menu_wrap {
@@ -487,6 +494,7 @@
     flex-direction: column;
   }
 }
+
 .scrollFixed .profile_left {
   position: fixed;
   width: 360px;
@@ -514,4 +522,17 @@
   .friendship {
     transform: translateX(-2rem);
   }
+}
+.fix {
+  flex-direction: row !important;
+}
+.react-loading-skeleton {
+  --base-color: #ccc !important;
+  --highlight-color: #ddd !important;
+}
+.sekelton_loader {
+  height: 100px;
+  width: 100%;
+  display: grid;
+  place-items: center;
 }
