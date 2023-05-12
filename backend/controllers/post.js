@@ -1,10 +1,10 @@
-const Post = require("../models/Post");
-const User = require("../models/User");
+const Post = require('../models/Post');
+const User = require('../models/User');
 
 exports.createPost = async (req, res) => {
   try {
     const post = await new Post(req.body).save();
-    await post.populate("user", "first_name last_name cover picture username");
+    await post.populate('user', 'first_name last_name cover picture username');
     res.json(post);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -12,19 +12,19 @@ exports.createPost = async (req, res) => {
 };
 exports.getAllPosts = async (req, res) => {
   try {
-    const followingTemp = await User.findById(req.user.id).select("following");
+    const followingTemp = await User.findById(req.user.id).select('following');
     const following = followingTemp.following;
     const promises = following.map((user) => {
       return Post.find({ user: user })
-        .populate("user", "first_name last_name picture username cover")
-        .populate("comments.commentBy", "first_name last_name picture username")
+        .populate('user', 'first_name last_name picture username cover')
+        .populate('comments.commentBy', 'first_name last_name picture username')
         .sort({ createdAt: -1 })
         .limit(10);
     });
     const followingPosts = await (await Promise.all(promises)).flat();
     const userPosts = await Post.find({ user: req.user.id })
-      .populate("user", "first_name last_name picture username cover")
-      .populate("comments.commentBy", "first_name last_name picture username")
+      .populate('user', 'first_name last_name picture username cover')
+      .populate('comments.commentBy', 'first_name last_name picture username')
       .sort({ createdAt: -1 })
       .limit(10);
     followingPosts.push(...[...userPosts]);
@@ -55,7 +55,7 @@ exports.comment = async (req, res) => {
       {
         new: true,
       }
-    ).populate("comments.commentBy", "picture first_name last_name username");
+    ).populate('comments.commentBy', 'picture first_name last_name username');
     res.json(newComments.comments);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -95,7 +95,7 @@ exports.savePost = async (req, res) => {
 exports.deletePost = async (req, res) => {
   try {
     await Post.findByIdAndRemove(req.params.id);
-    res.json({ status: "ok" });
+    res.json({ status: 'ok' });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
